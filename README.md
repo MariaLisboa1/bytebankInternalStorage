@@ -1,6 +1,6 @@
 # bytebank
 
-A new Bytebank project.
+A new Bytebank project using internal storage.
 
 ## Getting Started
 
