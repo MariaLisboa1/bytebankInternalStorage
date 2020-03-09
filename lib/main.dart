@@ -7,9 +7,12 @@ void main() {
 }
 
 class BytebankApp extends StatelessWidget {
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+//    save(Transaction(200.0, Contact(0, 'Nah', 2000))).then((transaction) => print(transaction));
+//    findAll().then((transactions) => print('new transactions: $transactions'));
     return MaterialApp(
       theme: ThemeData(
           primaryColor: Colors.green[900],
@@ -21,6 +24,5 @@ class BytebankApp extends StatelessWidget {
       home: Dashboard(),
 
     );
-
   }
 }
