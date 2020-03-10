@@ -1,6 +1,6 @@
 # bytebank
 
-A new Bytebank project using internal storage and web api.
+A Bytebank project using internal storage, web api and communication http.
 
 ## Getting Started
 
