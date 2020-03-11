@@ -11,7 +11,7 @@ class ContactsList extends StatefulWidget {
 
   @override
   State<StatefulWidget> createState() {
-    return _ContactsListState();
+    return _ContactsListState(contactDao: contactDao);
   }
 }
 

@@ -54,6 +54,12 @@ class Dashboard extends StatelessWidget {
     );
   }
 
+  void _showContactsList(BuildContext context) {
+    Navigator.of(context).push(MaterialPageRoute(
+      builder: (context) => ContactsList(contactDao: contactDao),
+    ));
+  }
+
   _showTransactionList(BuildContext context) {
     Navigator.of(context).push(MaterialPageRoute(
       builder: (context) => TransactionsList(),
@@ -103,10 +109,7 @@ class FeatureItem extends StatelessWidget {
       ),
     );
   }
+
 }
 
-void _showContactsList(BuildContext context) {
-  Navigator.of(context).push(MaterialPageRoute(
-    builder: (context) => ContactsList(contactDao: contactDao),
-  ));
-}
+
