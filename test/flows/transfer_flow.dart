@@ -45,6 +45,7 @@ void main() {
       }
       return false;
     });
+    
     expect(contactItem, findsOneWidget);
     await tester.tap(contactItem);
     await tester.pumpAndSettle();
