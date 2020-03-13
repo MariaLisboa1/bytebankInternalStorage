@@ -1,5 +1,6 @@
 import 'package:bytebank/database/dao/contact_dao.dart';
 import 'package:bytebank/models/contact.dart';
+import 'package:bytebank/widgets/app_dependecies.dart';
 import 'package:flutter/material.dart';
 
 class ContactForm extends StatefulWidget {
@@ -9,11 +10,11 @@ class ContactForm extends StatefulWidget {
 
 class _ContactFormState extends State<ContactForm> {
   final TextEditingController _nameController = TextEditingController();
-  final TextEditingController _accountNameController = TextEditingController();
-  final ContactDao _dao = ContactDao();
+  final TextEditingController _accountNumberController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
+    final dependecies = AppDependecies.of(context);
     return Scaffold(
       appBar: AppBar(
         title: Text('New contact'),
@@ -34,7 +35,7 @@ class _ContactFormState extends State<ContactForm> {
             Padding(
               padding: const EdgeInsets.only(top: 8.0),
               child: TextField(
-                controller: _accountNameController,
+                controller: _accountNumberController,
                 decoration: InputDecoration(
                   labelText: 'Account number',
                 ),
@@ -52,10 +53,10 @@ class _ContactFormState extends State<ContactForm> {
                   child: Text('Create'),
                   onPressed: () {
                     final String name = _nameController.text;
-                    final int accountName =
-                        int.tryParse(_accountNameController.text);
-                    final Contact newContact = Contact(0, name, accountName);
-                    _dao.save(newContact).then((id) => Navigator.pop(context));
+                    final int accountNumber =
+                        int.tryParse(_accountNumberController.text);
+                    final Contact newContact = Contact(0, name, accountNumber);
+                    _save(dependecies.contactDao, newContact, context);
                   },
                 ),
               ),
@@ -64,5 +65,10 @@ class _ContactFormState extends State<ContactForm> {
         ),
       ),
     );
+  }
+
+  void _save(ContactDao contactDao,Contact newContact, BuildContext context) async {
+    await contactDao.save(newContact);
+    Navigator.pop(context);
   }
 }
