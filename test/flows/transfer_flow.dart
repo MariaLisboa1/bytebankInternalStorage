@@ -97,6 +97,5 @@ void main() {
 
     final contactsListBack = find.byType(ContactsList);
     expect(contactsListBack, findsOneWidget);
-    
     });
 }
